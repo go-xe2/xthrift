@@ -1,0 +1,49 @@
+namespace: com.mnyun.demo
+# 引用其他文件
+imports:
+  - com.mnyun.types
+
+# 协议支持的基本数据类型
+basic:
+  - null
+  - str
+  - bl
+  - i8
+  - i16
+  - i32
+  - i64
+  - dl
+  - set
+  - list
+  - map
+  - struct
+  - exception
+
+# 自定义类型节点
+typeDefs:
+
+
+# 用户定义类型节点
+types:
+
+# 定义接口
+interfaces:
+  # helloService定义
+  helloService:
+    # sayHello接口定义
+    sayHello:
+      summary: sayHello的说明
+      # 输入参数
+      args:
+        # name参数
+        name:
+          id: 1
+          type: str
+          limit: optional
+        # age参数
+        age:
+          id: 2
+          type: i32
+      # 返回类型
+      results: com.mnyun.types.helloResult
+      throw: void

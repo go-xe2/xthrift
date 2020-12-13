@@ -1,0 +1,733 @@
+{
+	"path": "/Users/mx/mx/mny3/github.com/go-xe2/xthrift/pdl/proto",
+	"namespaces": {
+		"com.mnyun.demo": {
+			"namespace": "com.mnyun.demo",
+			"files": {
+				"demo.yaml": {
+					"Namespace": "com.mnyun.demo",
+					"Imports": [
+						"com.mnyun.types"
+					],
+					"Typedefs": {},
+					"Types": {},
+					"Services": {
+						"helloService": {
+							"name": "helloService",
+							"summary": "",
+							"methods": {
+								"sayHello": {
+									"name": "sayHello",
+									"summary": "sayHello的说明",
+									"args": [{
+											"id": 1,
+											"name": "name",
+											"fdType": {
+												"type": "str"
+											},
+											"summary": "",
+											"limit": "optional",
+											"rule": ""
+										},
+										{
+											"id": 2,
+											"name": "age",
+											"fdType": {
+												"type": "i32"
+											},
+											"summary": "",
+											"limit": "required",
+											"rule": ""
+										}
+									],
+									"resultType": {
+										"type": "struct",
+										"typeName": "helloResult",
+										"namespace": "com.mnyun.types"
+									},
+									"exception": {
+										"type": "void"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"com.mnyun.reg.admin": {
+			"namespace": "com.mnyun.reg.admin",
+			"files": {
+				"regAdminSvc.yaml": {
+					"Namespace": "com.mnyun.reg.admin",
+					"Imports": [
+						"com.mnyun.reg.types"
+					],
+					"Typedefs": {},
+					"Types": {},
+					"Services": {
+						"RegSvc": {
+							"name": "RegSvc",
+							"summary": "",
+							"methods": {
+								"AddResult": {
+									"name": "AddResult",
+									"summary": "新增",
+									"args": [{
+											"id": 1,
+											"name": "parId",
+											"fdType": {
+												"type": "i32"
+											},
+											"summary": "",
+											"limit": "required",
+											"rule": ""
+										},
+										{
+											"id": 2,
+											"name": "name",
+											"fdType": {
+												"type": "str"
+											},
+											"summary": "",
+											"limit": "required",
+											"rule": ""
+										}
+									],
+									"resultType": {
+										"type": "bl"
+									},
+									"exception": {
+										"type": "void"
+									}
+								},
+								"GetChildListResult": {
+									"name": "GetChildListResult",
+									"summary": "下级地区",
+									"args": [{
+										"id": 1,
+										"name": "parId",
+										"fdType": {
+											"type": "i32"
+										},
+										"summary": "上级地区id",
+										"limit": "required",
+										"rule": ""
+									}],
+									"resultType": {
+										"type": "list",
+										"elemType": {
+											"type": "struct",
+											"typeName": "RegItem",
+											"namespace": "com.mnyun.reg.types"
+										}
+									},
+									"exception": {
+										"type": "void"
+									}
+								},
+								"GetCityList": {
+									"name": "GetCityList",
+									"summary": "州市列表",
+									"args": [{
+										"id": 1,
+										"name": "provinceId",
+										"fdType": {
+											"type": "i32"
+										},
+										"summary": "省份id",
+										"limit": "required",
+										"rule": ""
+									}],
+									"resultType": {
+										"type": "list",
+										"elemType": {
+											"type": "struct",
+											"typeName": "RegItem",
+											"namespace": "com.mnyun.reg.types"
+										}
+									},
+									"exception": {
+										"type": "void"
+									}
+								},
+								"GetCountList": {
+									"name": "GetCountList",
+									"summary": "区县列表",
+									"args": [{
+										"id": 1,
+										"name": "cityId",
+										"fdType": {
+											"type": "i32"
+										},
+										"summary": "州市id",
+										"limit": "required",
+										"rule": ""
+									}],
+									"resultType": {
+										"type": "list",
+										"elemType": {
+											"type": "struct",
+											"typeName": "RegItem",
+											"namespace": "com.mnyun.reg.types"
+										}
+									},
+									"exception": {
+										"type": "void"
+									}
+								},
+								"GetProvincesList": {
+									"name": "GetProvincesList",
+									"summary": "省份列表",
+									"args": [],
+									"resultType": {
+										"type": "list",
+										"elemType": {
+											"type": "struct",
+											"typeName": "RegItem",
+											"namespace": "com.mnyun.reg.types"
+										}
+									},
+									"exception": {
+										"type": "void"
+									}
+								},
+								"GetRegTreeResult": {
+									"name": "GetRegTreeResult",
+									"summary": "地区目录树",
+									"args": [{
+										"id": 1,
+										"name": "parId",
+										"fdType": {
+											"type": "i32"
+										},
+										"summary": "上级地区id",
+										"limit": "required",
+										"rule": ""
+									}],
+									"resultType": {
+										"type": "list",
+										"elemType": {
+											"type": "struct",
+											"typeName": "RegItem",
+											"namespace": "com.mnyun.reg.types"
+										}
+									},
+									"exception": {
+										"type": "void"
+									}
+								},
+								"GetTownList": {
+									"name": "GetTownList",
+									"summary": "乡镇列表",
+									"args": [{
+										"id": 1,
+										"name": "countyId",
+										"fdType": {
+											"type": "i32"
+										},
+										"summary": "区县id",
+										"limit": "required",
+										"rule": ""
+									}],
+									"resultType": {
+										"type": "list",
+										"elemType": {
+											"type": "struct",
+											"typeName": "RegItem",
+											"namespace": "com.mnyun.reg.types"
+										}
+									},
+									"exception": {
+										"type": "void"
+									}
+								},
+								"RegDetailResult": {
+									"name": "RegDetailResult",
+									"summary": "详情",
+									"args": [{
+										"id": 1,
+										"name": "regId",
+										"fdType": {
+											"type": "i32"
+										},
+										"summary": "",
+										"limit": "required",
+										"rule": ""
+									}],
+									"resultType": {
+										"type": "struct",
+										"typeName": "RegItem",
+										"namespace": "com.mnyun.reg.types"
+									},
+									"exception": {
+										"type": "void"
+									}
+								},
+								"RemoveResult": {
+									"name": "RemoveResult",
+									"summary": "删除",
+									"args": [{
+										"id": 1,
+										"name": "regId",
+										"fdType": {
+											"type": "i32"
+										},
+										"summary": "",
+										"limit": "required",
+										"rule": ""
+									}],
+									"resultType": {
+										"type": "bl"
+									},
+									"exception": {
+										"type": "void"
+									}
+								},
+								"UpdateResult": {
+									"name": "UpdateResult",
+									"summary": "修改",
+									"args": [{
+											"id": 1,
+											"name": "regId",
+											"fdType": {
+												"type": "i32"
+											},
+											"summary": "",
+											"limit": "required",
+											"rule": ""
+										},
+										{
+											"id": 2,
+											"name": "parId",
+											"fdType": {
+												"type": "i32"
+											},
+											"summary": "",
+											"limit": "required",
+											"rule": ""
+										},
+										{
+											"id": 3,
+											"name": "name",
+											"fdType": {
+												"type": "str"
+											},
+											"summary": "",
+											"limit": "required",
+											"rule": ""
+										}
+									],
+									"resultType": {
+										"type": "bl"
+									},
+									"exception": {
+										"type": "void"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"com.mnyun.reg.types": {
+			"namespace": "com.mnyun.reg.types",
+			"files": {
+				"types.yaml": {
+					"Namespace": "com.mnyun.reg.types",
+					"Imports": [],
+					"Typedefs": {},
+					"Types": {
+						"RegItem": {
+							"type": "struct",
+							"name": "RegItem",
+							"summary": "地区资料参数",
+							"fields": [{
+									"id": 1,
+									"name": "Id",
+									"fdType": {
+										"type": "i32"
+									},
+									"summary": "summary",
+									"limit": "required",
+									"rule": ""
+								},
+								{
+									"id": 2,
+									"name": "ParentId",
+									"fdType": {
+										"type": "i32"
+									},
+									"summary": "summary",
+									"limit": "required",
+									"rule": ""
+								},
+								{
+									"id": 3,
+									"name": "Name",
+									"fdType": {
+										"type": "str"
+									},
+									"summary": "summary",
+									"limit": "required",
+									"rule": ""
+								},
+								{
+									"id": 4,
+									"name": "Level",
+									"fdType": {
+										"type": "i8"
+									},
+									"summary": "summary",
+									"limit": "required",
+									"rule": ""
+								},
+								{
+									"id": 5,
+									"name": "ChildCount",
+									"fdType": {
+										"type": "i32"
+									},
+									"summary": "summary",
+									"limit": "required",
+									"rule": ""
+								},
+								{
+									"id": 6,
+									"name": "ParIds",
+									"fdType": {
+										"type": "str"
+									},
+									"summary": "summary",
+									"limit": "required",
+									"rule": ""
+								},
+								{
+									"id": 7,
+									"name": "Path",
+									"fdType": {
+										"type": "str"
+									},
+									"summary": "summary",
+									"limit": "required",
+									"rule": ""
+								},
+								{
+									"id": 8,
+									"name": "Time",
+									"fdType": {
+										"type": "i64"
+									},
+									"summary": "summary",
+									"limit": "required",
+									"rule": ""
+								},
+								{
+									"id": 9,
+									"name": "Data",
+									"fdType": {
+										"type": "list",
+										"elemType": {
+											"type": "struct",
+											"typeName": "RegItem"
+										}
+									},
+									"summary": "summary",
+									"limit": "required",
+									"rule": ""
+								}
+							],
+							"refCount": 0
+						}
+					},
+					"Services": {}
+				}
+			}
+		},
+		"com.mnyun.reg.user": {
+			"namespace": "com.mnyun.reg.user",
+			"files": {
+				"regUserSvc.yaml": {
+					"Namespace": "com.mnyun.reg.user",
+					"Imports": [
+						"com.mnyun.reg.types"
+					],
+					"Typedefs": {},
+					"Types": {},
+					"Services": {
+						"RegSvc": {
+							"name": "RegSvc",
+							"summary": "服务说明",
+							"methods": {
+								"GetChildListResult": {
+									"name": "GetChildListResult",
+									"summary": "下级地区",
+									"args": [{
+										"id": 1,
+										"name": "parId",
+										"fdType": {
+											"type": "i32"
+										},
+										"summary": "父类id",
+										"limit": "optional",
+										"rule": ""
+									}],
+									"resultType": {
+										"type": "list",
+										"elemType": {
+											"type": "struct",
+											"typeName": "RegItem",
+											"namespace": "com.mnyun.reg.types"
+										}
+									},
+									"exception": {
+										"type": "void"
+									}
+								},
+								"GetCityList": {
+									"name": "GetCityList",
+									"summary": "州市列表",
+									"args": [{
+										"id": 1,
+										"name": "provinceId",
+										"fdType": {
+											"type": "i32"
+										},
+										"summary": "省份id",
+										"limit": "required",
+										"rule": ""
+									}],
+									"resultType": {
+										"type": "list",
+										"elemType": {
+											"type": "struct",
+											"typeName": "RegItem",
+											"namespace": "com.mnyun.reg.types"
+										}
+									},
+									"exception": {
+										"type": "void"
+									}
+								},
+								"GetCountList": {
+									"name": "GetCountList",
+									"summary": "区县列表",
+									"args": [{
+										"id": 1,
+										"name": "cityId",
+										"fdType": {
+											"type": "i32"
+										},
+										"summary": "州市id",
+										"limit": "required",
+										"rule": ""
+									}],
+									"resultType": {
+										"type": "list",
+										"elemType": {
+											"type": "struct",
+											"typeName": "RegItem",
+											"namespace": "com.mnyun.reg.types"
+										}
+									},
+									"exception": {
+										"type": "void"
+									}
+								},
+								"GetProvincesList": {
+									"name": "GetProvincesList",
+									"summary": "省份列表",
+									"args": [],
+									"resultType": {
+										"type": "list",
+										"elemType": {
+											"type": "struct",
+											"typeName": "RegItem",
+											"namespace": "com.mnyun.reg.types"
+										}
+									},
+									"exception": {
+										"type": "void"
+									}
+								},
+								"GetRegTreeResult": {
+									"name": "GetRegTreeResult",
+									"summary": "地区目录树",
+									"args": [{
+										"id": 1,
+										"name": "parId",
+										"fdType": {
+											"type": "i32"
+										},
+										"summary": "上级地区id",
+										"limit": "optional",
+										"rule": ""
+									}],
+									"resultType": {
+										"type": "list",
+										"elemType": {
+											"type": "struct",
+											"typeName": "RegItem",
+											"namespace": "com.mnyun.reg.types"
+										}
+									},
+									"exception": {
+										"type": "void"
+									}
+								},
+								"GetTownList": {
+									"name": "GetTownList",
+									"summary": "乡镇列表",
+									"args": [{
+										"id": 1,
+										"name": "countyId",
+										"fdType": {
+											"type": "i32"
+										},
+										"summary": "区县id",
+										"limit": "required",
+										"rule": ""
+									}],
+									"resultType": {
+										"type": "list",
+										"elemType": {
+											"type": "struct",
+											"typeName": "RegItem",
+											"namespace": "com.mnyun.reg.types"
+										}
+									},
+									"exception": {
+										"type": "void"
+									}
+								},
+								"RegDetailResult": {
+									"name": "RegDetailResult",
+									"summary": "详情",
+									"args": [{
+										"id": 1,
+										"name": "id",
+										"fdType": {
+											"type": "i32"
+										},
+										"summary": "",
+										"limit": "required",
+										"rule": ""
+									}],
+									"resultType": {
+										"type": "struct",
+										"typeName": "RegItem",
+										"namespace": "com.mnyun.reg.types"
+									},
+									"exception": {
+										"type": "void"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"com.mnyun.types": {
+			"namespace": "com.mnyun.types",
+			"files": {
+				"types.yaml": {
+					"Namespace": "com.mnyun.types",
+					"Imports": [],
+					"Typedefs": {
+						"int": {
+							"name": "int",
+							"orgType": {
+								"type": "i8"
+							}
+						},
+						"rows": {
+							"name": "rows",
+							"orgType": {
+								"type": "list",
+								"elemType": {
+									"type": "map",
+									"keyType": {
+										"type": "str"
+									},
+									"valType": {
+										"type": "str"
+									}
+								}
+							}
+						}
+					},
+					"Types": {
+						"helloData": {
+							"type": "struct",
+							"name": "helloData",
+							"summary": "",
+							"fields": [{
+									"id": 1,
+									"name": "name",
+									"fdType": {
+										"type": "str"
+									},
+									"summary": "summary",
+									"limit": "optional",
+									"rule": ""
+								},
+								{
+									"id": 2,
+									"name": "sex",
+									"fdType": {
+										"type": "bl"
+									},
+									"summary": "summary",
+									"limit": "required",
+									"rule": ""
+								}
+							],
+							"refCount": 0
+						},
+						"helloResult": {
+							"type": "struct",
+							"name": "helloResult",
+							"summary": "",
+							"fields": [{
+									"id": 1,
+									"name": "status",
+									"fdType": {
+										"type": "i32"
+									},
+									"summary": "summary",
+									"limit": "required",
+									"rule": ""
+								},
+								{
+									"id": 2,
+									"name": "msg",
+									"fdType": {
+										"type": "str"
+									},
+									"summary": "summary",
+									"limit": "required",
+									"rule": ""
+								},
+								{
+									"id": 3,
+									"name": "data",
+									"fdType": {
+										"type": "struct",
+										"typeName": "helloData"
+									},
+									"summary": "summary",
+									"limit": "required",
+									"rule": ""
+								}
+							],
+							"refCount": 0
+						}
+					},
+					"Services": {}
+				}
+			}
+		}
+	}
+}

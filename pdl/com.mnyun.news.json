@@ -1,0 +1,529 @@
+{
+  "namespace": "com.mnyun.news",
+  "imports": [],
+  "basic": ["null","str","bl","i8","i16","i32","i64","dl","set","list","map","struct","exception"],
+  "typeDefs": {
+    "short": "i16",
+    "int": "i32",
+    "long": "i64",
+    "String": "str",
+    "short": "i16",
+    "boolean": "bl"
+  },
+  "types": {
+    "MnyNewsClassify": {
+      "type":"struct",
+      "summary": "新闻分类",
+      "fields": {
+        "ncl_class_id": {"id": 1,"type": "int","summary": "分类id"},
+        "ncl_parent_id": {"id": 2,"type": "int","summary": "分类id"},
+        "ncl_name": {"id": 3,"type": "String","summary": "分类名称"},
+        "ncl_level": {"id": 4,"type": "int","summary": "当前级数"},
+        "ncl_child_count": {"id": 5,"type": "int","summary": "子类数"},
+        "ncl_parent_ids": {"id": 6,"type": "String","summary": "父类列表，以逗号分隔"},
+        "ncl_path": {"id": 7,"type": "String","summary": "父类路径"},
+        "childen": {"id": 8,"type": "list<MnyNewsClassify>","summary": "子类"}
+      }
+    },
+    "MnyNewsDetail": {
+      "type":"struct",
+      "summary": "新闻详情",
+      "fields":{
+        "id": {"id": 1,"type": "int","summary": "新闻id"},
+        "title_thum": {"id": 2,"type": "String","summary": "标题图片"},
+        "title": {"id": 3,"type": "String","summary": "标题"},
+        "author": {"id": 4,"type": "String","summary": "作者"},
+        "source": {"id": 5,"type": "String","summary": "来源"},
+        "type": {"id": 6,"type": "int","summary": "类型"},
+        "type_name": {"id": 7,"type": "String","summary": "类型名称"},
+        "release_date": {"id": 8,"type": "long","summary": "发布日期"},
+        "content": {"id": 8,"type": "String","summary": "内容"}
+      }
+    },
+    "MnyPolicyInterpret":{
+      "type":"struct",
+      "summary": "农业政策表",
+      "fields": {
+        "poi_policy_id": {"id": 1,"type": "int","summary": "政策id"},
+        "poi_user_id": {"id": 2,"type": "int","summary": "收集人id，后台用户id"},
+        "poi_user_name": {"id": 3,"type": "int","summary": "后台用户名（冗余）"},
+        "poi_cr_date": {"id": 4,"type": "long","summary": "收集日期"},
+        "poi_title": {"id": 5,"type": "String","summary": "政策标题"},
+        "poi_source": {"id": 6,"type": "String","summary": "政策来源"},
+        "poi_summary": {"id": 7,"type": "String","summary": "摘要"},
+        "poi_content": {"id": 8,"type": "String","summary": "正文"},
+        "poi_praise_count": {"id": 9,"type": "int","summary": "点赞数"},
+        "poi_visit_count": {"id": 10,"type": "int","summary": "点击数"},
+        "poi_file_count": {"id": 11,"type": "int","summary": "附件数"},
+        "poi_order": {"id": 12,"type": "int","summary": "排序"},
+        "poi_is_reco": {"id": 13,"type": "int","summary": "是否推荐，0：否，1：是"},
+        "poi_audit_status": {"id": 14,"type": "int","summary": "审核状态，0：未审核，1：审核失败，2：审核成功"},
+        "poi_audit_id": {"id": 15,"type": "int","summary": "后台审核人id"},
+        "poi_audit_date": {"id": 16,"type": "long","summary": "审核日期"},
+        "poi_audit_name": {"id": 17,"type": "String","summary": "审核人名称（冗余）"},
+        "poi_audit_summary": {"id": 18,"type": "String","summary": "审核说明"},
+        "poi_interpretation": {"id": 19,"type": "String","summary": "政策解读"}
+      }
+    },
+    "MnyHelpDocs": {
+      "type":"struct",
+      "summary": "平台帮助文档",
+      "fields":{
+        "hpd_doc_id": {"id": 1,"type": "int","summary": "文档id"},
+        "hpd_platform": {"id": 2,"type": "int","summary": "用户平台类型，0：PC端，1：移动端，2：小程序端"},
+        "hpd_class": {"id": 3,"type": "String","summary": "帮助分类"},
+        "hpd_title": {"id": 4,"type": "String","summary": "标题"},
+        "hpd_content": {"id": 5,"type": "String","summary": "正文"},
+        "hpd_cr_date": {"id": 6,"type": "long","summary": "创建日期"},
+        "hpd_user_id": {"id": 7,"type": "int","summary": "创建修改人id"},
+        "hpd_user_name": {"id": 8,"type": "String","summary": "创建修改人名称（冗余）"},
+        "hpd_ver_code": {"id": 9,"type": "int","summary": "文档版本"},
+        "hpd_release": {"id": 10,"type": "int","summary": "是否发布，0：不发布，1：发布"}
+      }
+    },
+    "MnyPolicyFiles": {
+      "type":"struct",
+      "summary": "农业政策附件表",
+      "fields": {
+        "pof_file_id": {"id": 1,"type": "int","summary": "文件id"},
+        "pof_poliicy_id": {"id": 2,"type": "int","summary": "政策id"},
+        "pof_date": {"id": 3,"type": "long","summary": "上传文件日期"},
+        "pof_title": {"id": 4,"type": "String","summary": "附件标题"},
+        "pof_url": {"id": 5,"type": "String","summary": "文件路径"},
+        "pof_ftype": {"id": 6,"type": "String","summary": "文件类型"},
+        "pof_size": {"id": 7,"type": "long","summary": "文件大小"},
+        "pof_user_id": {"id": 8,"type": "int","summary": "上传人id，后台用户id"},
+        "pof_user_name": {"id": 9,"type": "String","summary": "上传人名称（冗余）"}
+      }
+    },
+    "NewRows": {
+      "type":"struct",
+      "summary": "新闻列表",
+      "fields": {
+        "id": {"id": 1,"type": "int","summary": "新闻id"},
+        "title_thum": {"id": 2,"type": "String","summary": "标题图片"},
+        "title": {"id": 3,"type": "String","summary": "标题"},
+        "release_date": {"id": 4,"type": "long","summary": "发布日期"},
+        "summary": {"id": 5,"type": "String","summary": "摘要"}
+      }
+    },
+    "NewsList": {
+      "type":"struct",
+      "summary": "新闻列表",
+      "fields": {
+        "pageIndex": {"id": 1,"type": "int","summary": "页码"},
+        "count": {"id": 2,"type": "int","summary": "总数"},
+        "pageCount": {"id": 3,"type": "int","summary": "页码容量"},
+        "rows": {"id": 4,"type": "list<NewRows>","summary": "新闻列表"}
+      }
+    },
+    "HelpDocList": {
+      "type":"struct",
+      "summary": "平台帮助文档列表",
+      "fields": {
+        "pageIndex": {"id": 1,"type": "int","summary": "页码"},
+        "count": {"id": 2,"type": "int","summary": "总数"},
+        "pageCount": {"id": 3,"type": "int","summary": "页码容量"},
+        "rows": {"id": 4,"type": "list<MnyHelpDocs>","summary": "新闻列表"}
+      }
+    },
+    "PolicyRows": {
+      "type":"struct",
+      "summary": "农业政策列表-数据",
+      "fields": {
+        "id": {"id": 1,"type": "int","summary": "政策id"},
+        "title": {"id": 2,"type": "String","summary": "标题"},
+        "release_date": {"id": 3,"type": "long","summary": "发布日期"},
+        "summary": {"id": 4,"type": "String","summary": "摘要"}
+      }
+    },
+    "PolicyInterpretList": {
+      "type":"struct",
+      "summary": "农业政策列表",
+      "fields": {
+        "pageIndex": {"id": 1,"type": "int","summary": "页码"},
+        "count": {"id": 2,"type": "int","summary": "总数"},
+        "pageCount": {"id": 3,"type": "int","summary": "页码容量"},
+        "rows": {"id": 4,"type": "list<PolicyRows>","summary": "新闻列表"}
+      }
+    },
+    "Enclosure": {
+      "type":"struct",
+      "summary": "附件",
+      "fields": {
+        "enclosureName": {"id": 1,"type": "String","summary": "附件名称"},
+        "url": {"id": 2,"type": "String","summary": "附件下载路径"}
+      }
+    },
+    "PolicyDetail": {
+      "type":"struct",
+      "summary": "农业政策详情",
+      "fields": {
+        "id": {"id": 1,"type": "int","summary": "政策id"},
+        "title": {"id": 2,"type": "String","summary": "标题"},
+        "source": {"id": 3,"type": "String","summary": "来源"},
+        "type": {"id": 4,"type": "int","summary": "新闻资讯政策分类：1.资讯,2.政策"},
+        "type_name": {"id": 5,"type": "String","summary": "新闻资讯政策分类名称"},
+        "release_date": {"id": 6,"type": "long","summary": "发布日期"},
+        "content": {"id": 7,"type": "String","summary": "正文"},
+        "enclosure": {"id": 8,"type": "list<Enclosure>","summary": "附件"}
+      }
+    }
+  },
+  "interfaces": {
+    "mnews_svc": {
+      "addNewsClassify": {
+        "summary": "添加新闻分类(后台)",
+        "args": {
+          "token": {
+            "id": 1,
+            "type": "String"
+          },
+          "MnyNewsClassify": {
+            "id": 2,
+            "type": "MnyNewsClassify"
+          }
+        },
+        "results": "boolean",
+        "throw": "null"
+     },
+     "delNewsClassify": {
+      "summary": "删除新闻分类(后台)",
+      "args": {
+        "token": {
+          "id": 1,
+          "type": "String"
+        },
+        "ncl_class_id": {
+          "id": 1,
+          "type": "int"
+        }
+      },
+      "results": "boolean",
+      "throw": "null"
+    },
+    "gewNewsClassifyList": {
+      "summary": "删除新闻分类(后台)",
+      "args": {
+      },
+      "results": "list<MnyNewsClassify>",
+      "throw": "null"
+    },
+    "modifyNewsClassify": {
+      "summary": "修改新闻分类",
+      "args": {
+        "token": {
+          "id": 1,
+          "type": "String"
+        },
+        "ncl_class_id": {
+          "id": 2,
+          "type": "int"
+        },
+        "ncl_parent_id": {
+          "id": 3,
+          "type": "int"
+        },
+        "ncl_name": {
+          "id": 4,
+          "type": "String"
+        },
+        "ncl_level": {
+          "id": 5,
+          "type": "int"
+        }
+      },
+      "results": "boolean",
+      "throw": "null"
+    },
+    "getNewsList": {
+      "summary": "获取新闻列表((后台))",
+      "args": {
+        "p": {
+          "id": 1,
+          "type": "int"
+        },
+        "r": {
+          "id": 2,
+          "type": "int"
+        }
+      },
+      "results": "NewsList",
+      "throw": "null"
+    },
+    "addNews": {
+      "summary": "添加新闻(后台)",
+      "args": {
+        "token": {
+          "id": 1,
+          "type": "String"
+        },
+        "MnyNews": {
+          "id": 2,
+          "type": "struct"
+        }
+      },
+      "results": "NewsList",
+      "throw": "null"
+    },
+    "getNewsDetail": {
+      "summary": "获取新闻详情(后台)",
+      "args": {
+        "ns_new_id": {
+          "id": 1,
+          "type": "int"
+        }
+      },
+      "results": "MnyNewsDetail",
+      "throw": "null"
+    },
+    "modifyNews": {
+      "summary": "修改新闻(后台)",
+      "args": {
+        "token": {
+          "id": 1,
+          "type": "String"
+        },
+        "MnyNews": {
+          "id": 2,
+          "type": "struct"
+        }
+      },
+      "results": "boolean",
+      "throw": "null"
+    },
+    "examineNews": {
+      "summary": "审核新闻(后台)",
+      "args": {
+        "token": {
+          "id": 1,
+          "type": "String"
+        },
+        "MnyNews": {
+          "id": 2,
+          "type": "struct"
+        }
+      },
+      "results": "boolean",
+      "throw": "null"
+    },
+    "delNewsByNsNewId": {
+      "summary": "删除新闻(后台)",
+      "args": {
+        "token": {
+          "id": 1,
+          "type": "String"
+        },
+        "ns_new_id": {
+          "id": 2,
+          "type": "int"
+        }
+      },
+      "results": "boolean",
+      "throw": "null"
+    },
+    "addMnyHelpDocs": {
+      "summary": "添加平台帮助文档(后台)",
+      "args": {
+        "token": {
+          "id": 1,
+          "type": "String"
+        },
+        "MnyHelpDocs": {
+          "id": 2,
+          "type": "MnyHelpDocs"
+        }
+      },
+      "results": "boolean",
+      "throw": "null"
+    },
+    "getHelpDocList": {
+      "summary": "平台帮助文档列表(后台)",
+      "args": {
+        "p": {
+          "id": 1,
+          "type": "int"
+        },
+        "r": {
+          "id": 2,
+          "type": "int"
+        }
+      },
+      "results": "HelpDocList",
+      "throw": "null"
+    },
+    "getMnyHelpDocs": {
+      "summary": "查看平台帮助文档(后台)",
+      "args": {
+        "hpd_doc_id": {
+          "id": 1,
+          "type": "int"
+        }
+      },
+      "results": "MnyHelpDocs",
+      "throw": "null"
+    },
+    "delHelpDocs": {
+      "summary": "删除平台帮助文档(后台)",
+      "args": {
+        "token": {
+          "id": 1,
+          "type": "String"
+        },
+        "hpd_doc_id": {
+          "id": 2,
+          "type": "int"
+        }
+      },
+      "results": "boolean",
+      "throw": "null"
+    },
+    "modiftHelpDocs": {
+      "summary": "修改平台帮助文档(后台)",
+      "args": {
+        "token": {
+          "id": 1,
+          "type": "String"
+        },
+        "MnyHelpDocs": {
+          "id": 2,
+          "type": "MnyHelpDocs"
+        }
+      },
+      "results": "boolean",
+      "throw": "null"
+    },
+    "addPolicyInterpret": {
+      "summary": "添加农业政策(后台)",
+      "args": {
+        "token": {
+          "id": 1,
+          "type": "String"
+        },
+        "MnyPolicyInterpret": {
+          "id": 2,
+          "type": "MnyPolicyInterpret"
+        }
+      },
+      "results": "boolean",
+      "throw": "null"
+    },
+    "addMnyPolicyFiles": {
+      "summary": "添加农业政策附件(后台)",
+      "args": {
+        "token": {
+          "id": 1,
+          "type": "String"
+        },
+        "files": {
+          "id": 2,
+          "type": "MnyPolicyFiles"
+        }
+      },
+      "results": "boolean",
+      "throw": "null"
+    },
+    "getMnyPolicyFileList": {
+      "summary": "获取农业政策附件列表(后台)",
+      "args": {
+        "p": {
+          "id": 1,
+          "type": "int"
+        },
+        "r": {
+          "id": 2,
+          "type": "int"
+        }
+      },
+      "results": "list<MnyPolicyFiles>",
+      "throw": "null"
+    },
+    "delMnyPolicyFiles": {
+      "summary": "删除农业附件(后台)",
+      "args": {
+        "token": {
+          "id": 1,
+          "type": "String"
+        },
+        "pof_file_id": {
+          "id": 2,
+          "type": "int"
+        }
+      },
+      "results": "boolean",
+      "throw": "null"
+    },
+    "getPolicyInterpretList": {
+      "summary": "获取农业政策列表(后台)",
+      "args": {
+        "p": {
+          "id": 1,
+          "type": "int"
+        },
+        "r": {
+          "id": 2,
+          "type": "int"
+        }
+      },
+      "results": "PolicyInterpretList",
+      "throw": "null"
+    },
+    "getPolicyDetail": {
+      "summary": "农业政策详情(后台)",
+      "args": {
+        "poi_policy_id": {
+          "id": 1,
+          "type": "int"
+        }
+      },
+      "results": "PolicyDetail",
+      "throw": "null"
+    },
+    "delPolicyInterpret": {
+      "summary": "删除农业政策(后台)",
+      "args": {
+        "token": {
+          "id": 1,
+          "type": "String"
+        },
+        "poi_policy_id": {
+          "id": 2,
+          "type": "int"
+        }
+      },
+      "results": "boolean",
+      "throw": "null"
+    },
+    "modifyPolicyInterpret": {
+      "summary": "修改农业政策(后台)",
+      "args": {
+        "token": {
+          "id": 1,
+          "type": "String"
+        },
+        "mnyPolicyInterpret": {
+          "id": 2,
+          "type": "MnyPolicyInterpret"
+        }
+      },
+      "results": "boolean",
+      "throw": "null"
+    },
+    "examinePolicy": {
+      "summary": "农业政策审核(后台)",
+      "args": {
+        "token": {
+          "id": 1,
+          "type": "String"
+        },
+        "mnyPolicyInterpret": {
+          "id": 2,
+          "type": "MnyPolicyInterpret"
+        }
+      },
+      "results": "boolean",
+      "throw": "null"
+      }
+    }
+  }
+}

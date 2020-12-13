@@ -1,0 +1,69 @@
+# 服务协议定义文件
+
+# 协议命名空间
+namespace: com.mnyun.types
+
+# 服务协议基础数据类型
+basic:
+  - void  
+  - str  
+  - bl  
+  - i8  
+  - i16  
+  - i32  
+  - i64  
+  - idl  
+  - list  
+  - set  
+  - map  
+  - struct  
+  - exception  
+# 引用协议文件
+imports:
+
+# 数据类型别名定义节点
+typeDefs:
+  int: i8
+  rows: list<map<str,str>>
+
+# 数据类型定义节点
+types:
+  # 定义数据结构helloData
+  helloData:   
+    type: struct
+    summary: 
+    fields:
+      # 定义字段name
+      name:
+        id: 1
+        type: str
+        limit: optional
+      
+      # 定义字段sex
+      sex:
+        id: 2
+        type: bl
+      
+  # 定义数据结构helloResult
+  helloResult:   
+    type: struct
+    summary: 
+    fields:
+      # 定义字段status
+      status:
+        id: 1
+        type: i32
+      
+      # 定义字段msg
+      msg:
+        id: 2
+        type: str
+      
+      # 定义字段data
+      data:
+        id: 3
+        type: helloData
+      
+
+# 服务接口定义节点
+interfaces:

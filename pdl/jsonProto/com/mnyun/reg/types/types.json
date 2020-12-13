@@ -1,0 +1,30 @@
+{
+ "namespace": "com.mnyun.reg.types",
+ "basic": ["void","str","bl","i8","i16","i32","i64","idl","list","set","map","struct","exception"],
+ "imports": [],
+ "typeDefs": {
+
+ },
+ "types": {
+  "RegItem": {
+   "type": "struct",
+   "summary": "地区资料参数",
+   "fields": {
+    "Id": {"id": 1,"type": "i32","summary": "分类id"},
+    "ParentId": {"id": 2,"type": "i32","summary": "上级地区id"},
+    "Name": {"id": 3,"type": "str","summary": "名称"},
+    "Level": {"id": 4,"type": "i8","summary": "层级数"},
+    "ChildCount": {"id": 5,"type": "i32","summary": "子分类数"},
+    "ParIds": {"id": 6,"type": "str","summary": "父级id列表 以逗号分隔开"},
+    "Path": {"id": 7,"type": "str","summary": "完整地区名"},
+    "Time": {"id": 8,"type": "i64","summary": "创建日期"},
+    "Data": {"id": 9,"type": "list<RegItem>","summary": "测试"}
+   }
+  }
+ },
+
+ "interfaces": {
+
+ }
+
+}

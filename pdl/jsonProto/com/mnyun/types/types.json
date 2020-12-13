@@ -1,0 +1,33 @@
+{
+ "namespace": "com.mnyun.types",
+ "basic": ["void","str","bl","i8","i16","i32","i64","idl","list","set","map","struct","exception"],
+ "imports": [],
+ "typeDefs": {
+  "int": "i8",
+  "rows": "list<map<str,str>>"
+ },
+ "types": {
+  "helloData": {
+   "type": "struct",
+   "summary": "",
+   "fields": {
+    "name": {"id": 1,"type": "str","limit": "optional"},
+    "sex": {"id": 2,"type": "bl"}
+   }
+  },
+  "helloResult": {
+   "type": "struct",
+   "summary": "",
+   "fields": {
+    "status": {"id": 1,"type": "i32"},
+    "msg": {"id": 2,"type": "str"},
+    "data": {"id": 3,"type": "helloData"}
+   }
+  }
+ },
+
+ "interfaces": {
+
+ }
+
+}

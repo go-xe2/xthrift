@@ -1,0 +1,35 @@
+
+namespace: com.mnyun.demo
+
+typeDefs:
+  string: str
+
+types:
+  HelloResult:
+    type: struct
+    summary: SayHello返回数据
+    fields:
+      Status:
+        id: 1
+        type: i32
+        summary: 状态
+      Msg:
+        id: 2
+        type: string
+        summary: 状态说明
+      Content:
+        id: 3
+        type: str
+        summary: 返回数据
+
+interfaces:
+  HelloService:
+    SayHello:
+      summary: 测试接口
+      args:
+        name:
+          id: 1
+          type: str
+          summary: 姓名
+      results: HelloResult
+      throw: void

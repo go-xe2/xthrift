@@ -1,0 +1,5 @@
+com.mnyun.demo.helloService:
+- ext: 1
+  host: client1
+  port: 0
+  project: mnyun_demo

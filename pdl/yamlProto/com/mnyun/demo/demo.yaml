@@ -1,0 +1,54 @@
+# 服务协议定义文件
+
+# 协议命名空间
+namespace: com.mnyun.demo
+
+# 服务协议基础数据类型
+basic:
+  - void  
+  - str  
+  - bl  
+  - i8  
+  - i16  
+  - i32  
+  - i64  
+  - idl  
+  - list  
+  - set  
+  - map  
+  - struct  
+  - exception  
+# 引用协议文件
+imports:
+  - com.mnyun.types
+
+# 数据类型别名定义节点
+typeDefs:
+
+# 数据类型定义节点
+types:
+
+# 服务接口定义节点
+interfaces:
+  # 服务helloService定义开始
+  helloService:
+    # 定义接口方法sayHello开始
+    sayHello:
+      summary: sayHello的说明      
+      # 接口输入参数
+      args:
+        # 定义字段name
+        name:
+          id: 1
+          type: str
+          limit: optional
+        
+        # 定义字段age
+        age:
+          id: 2
+          type: i32
+        
+      
+      # 接口返回数据类型
+      results: com.mnyun.types.helloResult
+  # 服务定义节点结束

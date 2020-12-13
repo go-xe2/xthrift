@@ -1,0 +1,55 @@
+namespace: com.mnyun.types
+# 引用其他文件
+imports:
+
+# 协议支持的基本数据类型
+basic:
+  - null
+  - str
+  - bl
+  - i8
+  - i16
+  - i32
+  - i64
+  - dl
+  - set
+  - list
+  - map
+  - struct
+  - exception
+
+# 自定义类型节点
+typeDefs:
+  int: i8
+  rows: list<map<str,str>>
+
+# 用户定义类型节点
+types:
+  helloData:
+    type: struct
+    summery: 说明
+    fields:
+      name:
+        id: 1
+        type: str
+        limit: optional
+      sex:
+        id: 2
+        type: bl
+
+  helloResult:
+    type: struct
+    summery: 类型说明
+    fields:
+      status:
+        id: 1
+        type: i32
+      msg:
+        id: 2
+        type: str
+      data:
+        id: 3
+        type: helloData
+
+# 定义接口
+interfaces:

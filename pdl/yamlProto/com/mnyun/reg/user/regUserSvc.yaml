@@ -1,0 +1,128 @@
+# 服务协议定义文件
+
+# 协议命名空间
+namespace: com.mnyun.reg.user
+
+# 服务协议基础数据类型
+basic:
+  - void  
+  - str  
+  - bl  
+  - i8  
+  - i16  
+  - i32  
+  - i64  
+  - idl  
+  - list  
+  - set  
+  - map  
+  - struct  
+  - exception  
+# 引用协议文件
+imports:
+  - com.mnyun.reg.types
+
+# 数据类型别名定义节点
+typeDefs:
+
+# 数据类型定义节点
+types:
+
+# 服务接口定义节点
+interfaces:
+  # 服务RegSvc定义开始
+  RegSvc:
+    # 定义接口方法GetCityList开始
+    GetCityList:
+      summary: 州市列表      
+      # 接口输入参数
+      args:
+        # 定义字段provinceId
+        provinceId:
+          id: 1
+          type: i32
+          summary: 省份id
+        
+      
+      # 接口返回数据类型
+      results: list<com.mnyun.reg.types.RegItem>
+    # 定义接口方法GetCountList开始
+    GetCountList:
+      summary: 区县列表      
+      # 接口输入参数
+      args:
+        # 定义字段cityId
+        cityId:
+          id: 1
+          type: i32
+          summary: 州市id
+        
+      
+      # 接口返回数据类型
+      results: list<com.mnyun.reg.types.RegItem>
+    # 定义接口方法GetProvincesList开始
+    GetProvincesList:
+      summary: 省份列表      
+      # 接口输入参数
+      args:
+      
+      # 接口返回数据类型
+      results: list<com.mnyun.reg.types.RegItem>
+    # 定义接口方法GetRegTreeResult开始
+    GetRegTreeResult:
+      summary: 地区目录树      
+      # 接口输入参数
+      args:
+        # 定义字段parId
+        parId:
+          id: 1
+          type: i32
+          summary: 上级地区id
+          limit: optional
+        
+      
+      # 接口返回数据类型
+      results: list<com.mnyun.reg.types.RegItem>
+    # 定义接口方法GetTownList开始
+    GetTownList:
+      summary: 乡镇列表      
+      # 接口输入参数
+      args:
+        # 定义字段countyId
+        countyId:
+          id: 1
+          type: i32
+          summary: 区县id
+        
+      
+      # 接口返回数据类型
+      results: list<com.mnyun.reg.types.RegItem>
+    # 定义接口方法RegDetailResult开始
+    RegDetailResult:
+      summary: 详情      
+      # 接口输入参数
+      args:
+        # 定义字段id
+        id:
+          id: 1
+          type: i32
+        
+      
+      # 接口返回数据类型
+      results: com.mnyun.reg.types.RegItem
+    # 定义接口方法GetChildListResult开始
+    GetChildListResult:
+      summary: 下级地区      
+      # 接口输入参数
+      args:
+        # 定义字段parId
+        parId:
+          id: 1
+          type: i32
+          summary: 父类id
+          limit: optional
+        
+      
+      # 接口返回数据类型
+      results: list<com.mnyun.reg.types.RegItem>
+  # 服务定义节点结束

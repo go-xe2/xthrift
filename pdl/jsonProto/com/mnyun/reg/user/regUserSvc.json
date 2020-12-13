@@ -1,0 +1,73 @@
+{
+ "namespace": "com.mnyun.reg.user",
+ "basic": ["void","str","bl","i8","i16","i32","i64","idl","list","set","map","struct","exception"],
+ "imports": ["com.mnyun.reg.types"],
+ "typeDefs": {
+
+ },
+ "types": {
+
+ },
+
+ "interfaces": {
+  "RegSvc": {
+   "GetTownList": {
+    "summary": "乡镇列表",
+    "args": {
+     "countyId": {"id": 1,"type": "i32","summary": "区县id"}
+    },
+   "results": "list<com.mnyun.reg.types.RegItem>"
+
+   },
+   "RegDetailResult": {
+    "summary": "详情",
+    "args": {
+     "id": {"id": 1,"type": "i32"}
+    },
+   "results": "com.mnyun.reg.types.RegItem"
+
+   },
+   "GetChildListResult": {
+    "summary": "下级地区",
+    "args": {
+     "parId": {"id": 1,"type": "i32","summary": "父类id","limit": "optional"}
+    },
+   "results": "list<com.mnyun.reg.types.RegItem>"
+
+   },
+   "GetCityList": {
+    "summary": "州市列表",
+    "args": {
+     "provinceId": {"id": 1,"type": "i32","summary": "省份id"}
+    },
+   "results": "list<com.mnyun.reg.types.RegItem>"
+
+   },
+   "GetCountList": {
+    "summary": "区县列表",
+    "args": {
+     "cityId": {"id": 1,"type": "i32","summary": "州市id"}
+    },
+   "results": "list<com.mnyun.reg.types.RegItem>"
+
+   },
+   "GetProvincesList": {
+    "summary": "省份列表",
+    "args": {
+
+    },
+   "results": "list<com.mnyun.reg.types.RegItem>"
+
+   },
+   "GetRegTreeResult": {
+    "summary": "地区目录树",
+    "args": {
+     "parId": {"id": 1,"type": "i32","summary": "上级地区id","limit": "optional"}
+    },
+   "results": "list<com.mnyun.reg.types.RegItem>"
+
+   }
+  }
+ }
+
+}

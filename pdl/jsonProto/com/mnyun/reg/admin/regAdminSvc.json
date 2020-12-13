@@ -1,0 +1,100 @@
+{
+ "namespace": "com.mnyun.reg.admin",
+ "basic": ["void","str","bl","i8","i16","i32","i64","idl","list","set","map","struct","exception"],
+ "imports": ["com.mnyun.reg.types"],
+ "typeDefs": {
+
+ },
+ "types": {
+
+ },
+
+ "interfaces": {
+  "RegSvc": {
+   "RegDetailResult": {
+    "summary": "详情",
+    "args": {
+     "regId": {"id": 1,"type": "i32"}
+    },
+   "results": "com.mnyun.reg.types.RegItem"
+
+   },
+   "AddResult": {
+    "summary": "新增",
+    "args": {
+     "parId": {"id": 1,"type": "i32"},
+     "name": {"id": 2,"type": "str"}
+    },
+   "results": "bl"
+
+   },
+   "GetCountList": {
+    "summary": "区县列表",
+    "args": {
+     "cityId": {"id": 1,"type": "i32","summary": "州市id"}
+    },
+   "results": "list<com.mnyun.reg.types.RegItem>"
+
+   },
+   "GetProvincesList": {
+    "summary": "省份列表",
+    "args": {
+
+    },
+   "results": "list<com.mnyun.reg.types.RegItem>"
+
+   },
+   "GetRegTreeResult": {
+    "summary": "地区目录树",
+    "args": {
+     "parId": {"id": 1,"type": "i32","summary": "上级地区id"}
+    },
+   "results": "list<com.mnyun.reg.types.RegItem>"
+
+   },
+   "RemoveResult": {
+    "summary": "删除",
+    "args": {
+     "regId": {"id": 1,"type": "i32"}
+    },
+   "results": "bl"
+
+   },
+   "GetChildListResult": {
+    "summary": "下级地区",
+    "args": {
+     "parId": {"id": 1,"type": "i32","summary": "上级地区id"}
+    },
+   "results": "list<com.mnyun.reg.types.RegItem>"
+
+   },
+   "GetTownList": {
+    "summary": "乡镇列表",
+    "args": {
+     "countyId": {"id": 1,"type": "i32","summary": "区县id"}
+    },
+   "results": "list<com.mnyun.reg.types.RegItem>"
+
+   },
+   "GetCityList": {
+    "summary": "州市列表",
+    "args": {
+     "provinceId": {"id": 1,"type": "i32","summary": "省份id"}
+    },
+   "results": "list<com.mnyun.reg.types.RegItem>"
+
+   },
+   "UpdateResult": {
+    "summary": "修改",
+    "args": {
+     "regId": {"id": 1,"type": "i32"},
+     "parId": {"id": 2,"type": "i32"},
+     "name": {"id": 3,"type": "str"}
+    },
+   "results": "bl"
+
+   }
+  }
+ }
+
+}

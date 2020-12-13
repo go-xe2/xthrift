@@ -1,0 +1,156 @@
+namespace: com.mnyun.reg.admin
+# 引用其他文件
+imports:
+  - com.mnyun.reg.types.types
+
+# 定义接口
+interfaces:
+  # RegSvc定义
+  RegSvc:
+    # AddResult接口定义
+    AddResult:
+      summary: 新增
+      # 输入参数
+      args:
+        parId:
+          id: 1
+          type: i32
+          summery: 上级地区id
+        name:
+          id: 2
+          type: str
+          summery: 名称
+      # 返回类型(types包定义)
+      results: bl
+      # 抛出异常类型
+      throw: void
+
+    # UpdateResult接口定义
+    UpdateResult:
+      summary: 修改
+      # 输入参数
+      args:
+        regId:
+          id: 1
+          type: i32
+          summery: 地区id
+        parId:
+          id: 2
+          type: i32
+          summery: 上级地区id
+        name:
+          id: 3
+          type: str
+          summery: 名称
+      # 返回类型(types包定义)
+      results: bl
+      # 抛出异常类型
+      throw: void
+
+    # RemoveResult接口定义
+    RemoveResult:
+      summary: 删除
+      # 输入参数
+      args:
+        regId:
+          id: 1
+          type: i32
+          summery: 地区id
+      # 返回类型(types包定义)
+      results: bl
+      # 抛出异常类型
+      throw: void
+
+    # regDetailResult接口定义
+    RegDetailResult:
+      summary: 详情
+      # 输入参数
+      args:
+        regId:
+          id: 1
+          type: i32
+          summery: 地区id
+      # 返回类型(types包定义)
+      results: com.mnyun.reg.types.RegItem
+      # 抛出异常类型
+      throw: void
+
+    # GetProvincesList接口
+    GetProvincesList:
+      summary: 省份列表
+      # 输入参数
+      args:
+      # 返回类型(types包定义)
+      results: list<com.mnyun.reg.types.RegItem>
+      # 抛出异常类型
+      throw: void
+
+    # GetCityList接口
+    GetCityList:
+      summary: 州市列表
+      # 输入参数
+      args:
+        provinceId:
+          id: 1
+          type: i32
+          summary: 省份id
+      # 返回类型(types包定义)
+      results: list<com.mnyun.reg.types.RegItem>
+      # 抛出异常类型
+      throw: void
+
+    # GetCountList接口
+    GetCountList:
+      summary: 区县列表
+      # 输入参数
+      args:
+        cityId:
+          id: 1
+          type: i32
+          summary: 州市id
+      # 返回类型(types包定义)
+      results: list<com.mnyun.reg.types.RegItem>
+      # 抛出异常类型
+      throw: void
+
+    # GetTownList接口
+    GetTownList:
+      summary: 乡镇列表
+      # 输入参数
+      args:
+        countyId:
+          id: 1
+          type: i32
+          summary: 区县id
+      # 返回类型(types包定义)
+      results: list<com.mnyun.reg.types.RegItem>
+      # 抛出异常类型
+      throw: void
+
+    # GetChildListResult接口定义
+    GetChildListResult:
+      summary: 下级地区
+      # 输入参数
+      args:
+        parId:
+          id: 1
+          type: i32
+          summary: 上级地区id
+      # 返回类型(types包定义)
+      results: list<com.mnyun.reg.types.RegItem>
+      # 抛出异常类型
+      throw: void
+
+    # GetRegTreeResult接口定义
+    GetRegTreeResult:
+      summary: 地区目录树
+      # 输入参数
+      args:
+        parId:
+          id: 1
+          type: i32
+          summary: 上级地区id
+      # 返回类型(types包定义)
+      results: list<com.mnyun.reg.types.RegItem>
+      # 抛出异常类型
+      throw: void

@@ -1,0 +1,68 @@
+namespace: com.mnyun.reg.types
+# 协议支持的基本数据类型
+basic:
+  - null
+  - str
+  - bl
+  - i8
+  - i16
+  - i32
+  - i64
+  - dl
+  - set
+  - list
+  - map
+  - struct
+  - exception
+
+# 自定义类型节点
+types:
+  # 地区资料列表参数
+  RegItem:
+    type: struct
+    summary: 地区资料参数
+    fields:
+      Id:
+        id: 1
+        type: i32
+        limit: required
+        summary: 分类id
+      ParentId:
+        id: 2
+        type: i32
+        limit: required
+        summary: 上级地区id
+      Name:
+        id: 3
+        type: str
+        limit: required
+        summary: 名称
+      Level:
+        id: 4
+        type: i8
+        limit: required
+        summary: 层级数
+      ChildCount:
+        id: 5
+        type: i32
+        limit: required
+        summary: 子分类数
+      ParIds:
+        id: 6
+        type: str
+        limit: required
+        summary: 父级id列表 以逗号分隔开
+      Path:
+        id: 7
+        type: str
+        limit: required
+        summary: 完整地区名
+      Time:
+        id: 8
+        type: i64
+        limit: required
+        summary: 创建日期
+      Data:
+        id: 9
+        type: list<RegItem>
+        summary: 测试

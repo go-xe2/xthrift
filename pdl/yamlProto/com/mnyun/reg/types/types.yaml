@@ -1,0 +1,90 @@
+# 服务协议定义文件
+
+# 协议命名空间
+namespace: com.mnyun.reg.types
+
+# 服务协议基础数据类型
+basic:
+  - void  
+  - str  
+  - bl  
+  - i8  
+  - i16  
+  - i32  
+  - i64  
+  - idl  
+  - list  
+  - set  
+  - map  
+  - struct  
+  - exception  
+# 引用协议文件
+imports:
+
+# 数据类型别名定义节点
+typeDefs:
+
+# 数据类型定义节点
+types:
+  # 定义数据结构RegItem
+  RegItem:   
+    type: struct
+    summary: 地区资料参数
+    fields:
+      # 定义字段Id
+      Id:
+        id: 1
+        type: i32
+        summary: 分类id
+      
+      # 定义字段ParentId
+      ParentId:
+        id: 2
+        type: i32
+        summary: 上级地区id
+      
+      # 定义字段Name
+      Name:
+        id: 3
+        type: str
+        summary: 名称
+      
+      # 定义字段Level
+      Level:
+        id: 4
+        type: i8
+        summary: 层级数
+      
+      # 定义字段ChildCount
+      ChildCount:
+        id: 5
+        type: i32
+        summary: 子分类数
+      
+      # 定义字段ParIds
+      ParIds:
+        id: 6
+        type: str
+        summary: 父级id列表 以逗号分隔开
+      
+      # 定义字段Path
+      Path:
+        id: 7
+        type: str
+        summary: 完整地区名
+      
+      # 定义字段Time
+      Time:
+        id: 8
+        type: i64
+        summary: 创建日期
+      
+      # 定义字段Data
+      Data:
+        id: 9
+        type: list<RegItem>
+        summary: 测试
+      
+
+# 服务接口定义节点
+interfaces:

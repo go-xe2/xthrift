@@ -1,0 +1,173 @@
+{
+  "namespace": "com.mnyun.consult",
+  "basic": ["null","str","bl","i8","i16","i32","i64","dl","set","list","map","struct","exception"],
+  "typeDefs": {
+    "short": "i16",
+    "int": "i32",
+    "long": "i64",
+    "String": "str",
+    "short": "i16",
+    "boolean": "bl"
+  },
+  "types": {
+    "MnyProjectCase": {
+      "type": "struct",
+      "summery": "项目案例表",
+      "fields": {
+        "prc_case_id": {"id": 1,"type": "String",
+          "valid": "这里可以写数据校验规则，后期如果有的话","summery": "案例id"
+        },
+        "prc_user_id": {"id": 2,"type": "String","summery": "发布例案人id, 会员id, 如果后台发布则为空"},
+        "prc_cpy_id": {"id": 3,"type": "String","summery": "例案所属企业id"},
+        "prc_cpy_name": {"id": 4,"type": "String","summery": "企业名称(冗余)"},
+        "prc_cpy_head": {"id": 5,"typ": "String","summery": "企业门头（冗余）"},
+        "prc_project": {"id": 6,"type": "String","summery": "项目名称"},
+        "prc_content": {"id": 7,"type": "String","summery": "项目介绍"},
+        "prc_cr_date": {"id": 8,"type": "long","summery": "发布日期"},
+        "prc_user_name": {"id": 9,"type": "String","summery": "会员名称（冗余)"},
+        "prc_user_head": {"id": 10,"type": "String","summery": "会员头像（冗余）"},
+        "prc_visit_count": {"id": 11,"type": "int","summery": "点击数"},
+        "prc_is_reco": {"id": 12,"type": "int","summery": "是否平台推荐"},
+        "prc_cpy_reco": {"id": 13,"type": "int","summery": "是否企业推荐"},
+        "prc_order": {"id": 14,"type": "int","summery": "排序"}
+      }
+    },
+    "MnyProjectAdvice": {
+      "type": "struct",
+      "summery": "项目咨询服务表",
+      "fields": {
+        "pra_advice_id": {"id": 1,"type": "String","summery": "咨询id"},
+        "pra_cpy_id": {"id": 2,"type": "String","summery": "企业id"},
+        "pra_cpy_name": {"id": 3,"type": "String","summery": "被咨询企业名称（冗余）"},
+        "pra_cpy_user": {"id": 4,"type": "String","summery": "企业联系人id，会员id"},
+        "pra_contact_per": {"id": 5,"type": "String","summery": "联系人"},
+        "pra_telphone": {"id": 6,"type": "String","summery": "联系电话"},
+        "pra_svc_type": {"id": 7,"type": "int","summery": "服务类型,0:申报项目,1:项目规划策划，2：财务咨询，3：其他咨询"},
+        "pra_content": {"id": 8,"type": "String","summery": "咨询内容"},
+        "pra_date": {"id": 9,"type": "long","summery": "咨询日期"},
+        "pra_audit_status": {"id": 10,"type": "int","summery": "服务状态，0:未审核,1:审核失败,2：审核成功，3：平台服务"},
+        "pra_audit_date": {"id": 11,"type": "long","summery": "审核日期"},
+        "pra_audit_summary": {"id": 12,"type": "String","summery": "审核说明"},
+        "pra_audit_id": {"id": 13,"type": "int","summery": "审核人id，后台用户id"},
+        "pra_audit_name": {"id": 14,"type": "String","summery": "审核人名称(冗余)"},
+        "pra_csvc_status": {"id": 15,"type": "int","summery": "企业处理状态,0未处理，1：已经回复,2:无法联系"},
+        "pra_csvc_date": {"id": 16,"type": "long","summery": "企业处理日期"},
+        "pra_csvc_comment": {"id": 17,"type": "String","summery": "企业处理备注"},
+        "pra_svc_status": {"id": 18,"type": "int","summery": "平台处理状态, 0:未处理，1：已回复，2：无法联系，3:不同意平台服务"},
+        "pra_svc_date": {"id": 19,"type": "long","summery": "平台处理日期"},
+        "pra_svc_comment": {"id": 20,"type": "String","summery": "平台处理备注"},
+        "pra_svc_user": {"id": 21,"type": "String","summery": "平台处理人名称"}
+      }
+    },
+    "ProjectCaseList": {
+      "type": "struct",
+      "summery": "获取项目案例列表",
+      "fields": {
+        "pageIndex": {"id": 1,"type": "int","summery": "页码"},
+        "count": {"id": 2,"type": "int","summery": "总数"},
+        "pageCount": {"id": 3,"type": "int","summery": "页码容量"},
+        "rows": {"id": 4,"type": "list<MnyProjectCase>","summery": "数据"}
+      }
+    },
+    "CaseDetail": {
+      "type": "struct",
+      "summery": "项目咨询案例-详情",
+      "fields": {
+        "id": {"id": 1,"type": "int","summery": "企业ID"},
+        "userId": {"id": 2,"type": "String","summery": "用户ID"},
+        "head_img": {"id": 3,"type": "String","summery": "企业门头图片"},
+        "name": {"id": 4,"type": "String","summery": "企业名称"},
+        "praise_count": {"id": 5,"type": "int","summery": "点赞数"},
+        "case_count": {"id": 6,"type": "int","summery": "案例数"},
+        "entry_name": {"id": 7,"type": "String","summery": "项目名称"},
+        "release_date": {"id": 8,"type": "long","summery": "发布日期"},
+        "case_content": {"id": 9,"type": "String","summery": "案例介绍"}
+      }
+    },
+    "ProjectAdviceList": {
+      "type": "struct",
+      "summery": "项目咨询服务列表",
+      "fields": {
+        "pageIndex": {"id": 1,"type": "int","summery": "页码"},
+        "count": {"id": 2,"type": "int","summery": "总数"},
+        "pageCount": {"id": 3,"type": "int","summery": "页码容量"},
+        "rows": {"id": 4,"type": "list<MnyProjectAdvice>","summery": "数据"}
+      }
+    }
+  },
+  "interfaces": {
+    "mconsult_svc": {
+      "addMnyProjectCase": {
+        "summery": "发布项目咨询案例",
+        "args": {
+          "token": {"id": 1,"type": "String"},
+          "mnyProjectCase": {"id": 2,"type": "MnyProjectCase"}
+        },
+        "results": "boolean",
+        "throw": "null"
+      },
+      "delProjectCase":{
+        "summery": "删除项目咨询案例",
+        "args": {
+          "token": {"id": 1,"type": "String"},
+          "prc_case_id": {"id": 2,"type": "String"}
+        },
+        "results": "boolean",
+        "throw": "null"
+      },
+      "modifyProjectCase": {
+        "summary": "修改项目案例",
+        "args": {
+          "token": {"id": 1,"type": "String"},
+          "mnyProjectCase": {"id": 2,"type": "MnyProjectCase"}
+        },
+        "results": "boolean",
+        "throw": "null"
+      },
+      "getProjectCaseList": {
+        "summary": "获取项目案例列表",
+        "args": {
+          "p": {"id": 1,"type": "int"},
+          "r": {"id": 2,"type": "int"}
+        },
+        "results": "ProjectCaseList",
+        "throw": "null"
+      },
+      "caseDetail": {
+        "summary": "项目咨询案例-详情",
+        "args": {
+          "prc_case_id": {"id": 1,"type": "String"}
+        },
+        "results": "CaseDetail",
+        "throw": "void"
+      },
+      "getMnyProjectAdviceList": {
+        "summery": "项目咨询服务列表",
+        "args": {
+          "p": {"id": 1,"type": "int"},
+          "r": {"id": 2,"type": "int"}
+        },
+        "results": "ProjectAdviceList",
+        "throw": "null"
+      },
+      "delMnyProjectAdvice": {
+        "summery": "删除项目咨询",
+        "args": {
+          "token": {"id": 1,"type": "String"},
+          "pra_advice_id": {"id": 2,"type": "String"}
+        },
+        "results": "boolean",
+        "throw": "null"
+      },
+      "examProjectAdvice": {
+        "summery": "审核项目咨询服务",
+        "args": {
+          "token": {"id": 1,"type": "String"},
+          "mnyProjectAdvice": {"id": 2,"type": "MnyProjectAdvice"}
+        },
+        "results": "boolean",
+        "throw": "null"
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+ "namespace": "com.mnyun.demo",
+ "basic": ["void","str","bl","i8","i16","i32","i64","idl","list","set","map","struct","exception"],
+ "imports": ["com.mnyun.types"],
+ "typeDefs": {
+
+ },
+ "types": {
+
+ },
+
+ "interfaces": {
+  "helloService": {
+   "sayHello": {
+    "summary": "sayHello的说明",
+    "args": {
+     "name": {"id": 1,"type": "str","limit": "optional"},
+     "age": {"id": 2,"type": "i32"}
+    },
+   "results": "com.mnyun.types.helloResult"
+
+   }
+  }
+ }
+
+}
