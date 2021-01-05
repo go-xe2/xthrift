@@ -4,7 +4,7 @@ go 1.15
 
 require (
 	github.com/apache/thrift v0.13.0
-	github.com/go-xe2/x v1.0.2
+	github.com/go-xe2/x v1.0.9
 	github.com/gorilla/mux v1.8.0
 	github.com/modood/table v0.0.0-20200225102042-88de94bb9876
 	github.com/smartystreets/goconvey v1.6.4 // indirect
