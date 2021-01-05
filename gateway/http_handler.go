@@ -127,10 +127,8 @@ func (p *TSvrHttpHandler) Handle(req *xhttpServer.THttpRequest) {
 	}
 	if mp, ok := resultData.(map[string]interface{}); ok {
 		if _, ok1 := mp["status"]; ok1 {
-			if _, ok2 := mp["content"]; ok2 {
-				req.ReturnJson(resultData)
-				return
-			}
+			req.ReturnJson(resultData)
+			return
 		}
 	}
 	req.ReturnJson(map[string]interface{}{
